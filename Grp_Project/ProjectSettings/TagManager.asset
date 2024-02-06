@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 156815533
+    locked: 0
+  - name: Enviroment
+    uniqueID: 528375257
+    locked: 0
+  - name: Player
+    uniqueID: 1748068843
+    locked: 0
+  - name: EnviromentOverLap
+    uniqueID: 3682455943
+    locked: 0
