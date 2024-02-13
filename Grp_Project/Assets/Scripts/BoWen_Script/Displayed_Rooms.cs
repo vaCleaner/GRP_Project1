@@ -7,7 +7,9 @@ public class Displayed_Rooms : MonoBehaviour
     [SerializeField] private GameObject[] MoveableObject = new GameObject[1];
     [SerializeField] private GameObject[] RemoveableObj = new GameObject[1];
     [SerializeField] private Transform[] ListOfPos = new Transform[1];
-    private GameObject selectedMoveObj;
+    [SerializeField] private GameObject[] SpawnAnomaly = new GameObject[1];
+    [SerializeField] private Transform[] SetAnomaly = new Transform[1];
+    private GameObject selectedMoveObj, savedObject;
     private Vector3 saveMovingPos;
     
 
@@ -22,8 +24,21 @@ public class Displayed_Rooms : MonoBehaviour
     {
         
     }
+    public void spawnAnomaly(bool report)
+    {
+        if (report)
+        {
+            Destroy(savedObject.gameObject);
+        }
+        else
+        {
+            int randomNumber = Random.Range(0, SpawnAnomaly.Length);
+            int randomPosition = Random.Range(0, SetAnomaly.Length);
+            savedObject = Instantiate(SpawnAnomaly[randomNumber], SetAnomaly[randomPosition]);
+        }
+    }
 
-   
+
 
     public void setAbnormal(AbnormalAction category, bool clear)
     {
