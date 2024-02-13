@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1a4e3482a25af458d732fa9f8b98ed, type: 3}
+  m_Name: Room5_Abnormal
+  m_EditorClassIdentifier: 
+  ListOfAbnormalData:
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 0
+    ChanceRateMinimum: 1
+    ChanceRateMaximum: 30
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 1
+    ChanceRateMinimum: 31
+    ChanceRateMaximum: 70
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 2
+    ChanceRateMinimum: 71
+    ChanceRateMaximum: 90
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 3
+    ChanceRateMinimum: 91
+    ChanceRateMaximum: 99
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 4
+    ChanceRateMinimum: 100
+    ChanceRateMaximum: 100
