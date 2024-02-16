@@ -8,8 +8,8 @@ public class Entities : MonoBehaviour
 
     public int ids = 0;
 
-    float timer;
-
+    float timer, Botimer;
+    
     public GameObject EntitiesLuky;
 
     public GameObject EntitiesFaroid;
@@ -61,10 +61,11 @@ public class Entities : MonoBehaviour
     private void Bocan()
     {
 
+
         if (EntitiesBocan.activeSelf == true)
         {
 
-
+            StartBotimer();
 
         }
 
@@ -76,11 +77,13 @@ public class Entities : MonoBehaviour
 
 
 
+
     }
 
-    public void timerr()
+    public void StartBotimer()
     {
 
+        Botimer += Time.deltaTime;
     }
 
 
