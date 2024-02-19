@@ -1379,6 +1379,7 @@ GameObject:
   - component: {fileID: 266332518}
   - component: {fileID: 266332521}
   - component: {fileID: 266332520}
+  - component: {fileID: 266332522}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: Untagged
@@ -1478,7 +1479,20 @@ MonoBehaviour:
   - {fileID: 1466836719}
   - {fileID: 534336430}
   - {fileID: 2077368537}
+  cameraAnomaly: {fileID: 266332522}
   MapObj: {fileID: 1633267352}
+--- !u!114 &266332522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266332517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d7bb77e17f2c94b9dcdc918510cc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &267585058
 GameObject:
   m_ObjectHideFlags: 0
