@@ -23,8 +23,7 @@ public class CameraScript : MonoBehaviour
     private Vector2 screenBound;
     private float camWidth;
     private float camHeight;
-
-    
+    [SerializeField] CameraAnomaly cameraAnomaly;
     [SerializeField]SpriteRenderer MapObj;
 
     // Start is called before the first frame update
@@ -104,6 +103,7 @@ public class CameraScript : MonoBehaviour
         StartCoroutine(delayMovingCam(1));
         SercruityCam.transform.localPosition = new Vector3(0, 0, SercruityCam.transform.position.z);
         displayCorrectCam();
+        
     }
 
     public void moveLeftRight()
@@ -172,7 +172,7 @@ public class CameraScript : MonoBehaviour
                 AllCamBtn[i].interactable = true;
             }
         }
-
+        cameraAnomaly.purple(currentViewIndex);
     }
 
     IEnumerator delayMovingCam(float value)

@@ -11,6 +11,7 @@ public class activeAbnormalActivites
     
 }
 
+
 public class GameManager : MonoBehaviour
 {
     private float Seconds, Minute, nextSpawnTime;
@@ -63,6 +64,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public bool checkRoom(int value)
+    {
+        foreach (AbnormalAction currentAction in activeAbnormals[value].ActiveAbnormal)
+        {
+            if(currentAction.TypesOfAbnormal == AbnormalAction.AbnormalTypes.Abnormal4)
+            {
+                return true;
+
+            }
+
+        }
+        return false;
+    }
     public void addRandomAbnormal()
     {
         RandomRoomIndex = randomRoom();
