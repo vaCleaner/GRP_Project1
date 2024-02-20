@@ -5,11 +5,12 @@ using UnityEngine;
 public class PC_Monitor : MonoBehaviour
 {
     public GameObject PCMonitor;
-    [SerializeField]private CameraScript camScript;
+    [SerializeField]private CameraScript camScript, camerascript;
     [SerializeField] private SendAbnormalResult reportScript;
-
+    
     private int leftOffIndex;
-    private bool canOpen;
+    private bool canOpen;   
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +43,9 @@ public class PC_Monitor : MonoBehaviour
 
     public void CheckMonitor()
     {
-        if (!canOpen)
+        if (!canOpen || Generator.isGeneOff == true)
         {
+            
             return;
         }
 
@@ -62,6 +64,12 @@ public class PC_Monitor : MonoBehaviour
             }
         }
 
+    }
+
+    public void Nopower()
+    {
+        camerascript.checkCamera(false);
+        PCMonitor.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

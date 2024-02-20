@@ -9,6 +9,7 @@ public class AllAbnormlData
     public AbnormalAction AbnormalData;
     public float ChanceRateMinimum;
     public float ChanceRateMaximum;
+
 } 
 
 [CreateAssetMenu]

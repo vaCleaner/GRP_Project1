@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     public AbnormalAction getAbnormalData()
     {
-        int getSpawnChance = Random.Range(1, 101);
+        int getSpawnChance = 99;
         bool repeat = true;
         AbnormalAction selectedAbnormal = null;
 

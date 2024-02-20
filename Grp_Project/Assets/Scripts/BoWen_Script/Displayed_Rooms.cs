@@ -9,9 +9,10 @@ public class Displayed_Rooms : MonoBehaviour
     [SerializeField] private Transform[] ListOfPos = new Transform[1];
     [SerializeField] private GameObject[] SpawnAnomaly = new GameObject[1];
     [SerializeField] private Transform[] SetAnomaly = new Transform[1];
-    private GameObject selectedMoveObj, savedObject;
+    private GameObject selectedMoveObj, savedObject, saveEntitieso;
     private Vector3 saveMovingPos;
-    
+
+    [SerializeField] private int Roomids;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,18 @@ public class Displayed_Rooms : MonoBehaviour
         }
     }
 
+    public void SpawnEntites(bool Clearit)
+    {
+        if (Clearit)
+        {
+           Destroy(saveEntitieso.gameObject);
+          
+        }
+        else
+        {
+            saveEntitieso = SpawnerEntities.Staticscript.Spawner(Roomids,this.transform);
+        }
+    }
 
 
     public void setAbnormal(AbnormalAction category, bool clear)
@@ -61,7 +74,7 @@ public class Displayed_Rooms : MonoBehaviour
                 break;
 
             case AbnormalAction.AbnormalTypes.Abnormal5:
-
+                SpawnEntites(clear);
                 break;
 
             default:

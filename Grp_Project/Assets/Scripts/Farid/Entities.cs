@@ -4,86 +4,52 @@ using UnityEngine;
 
 public class Entities : MonoBehaviour
 {
-   [SerializeField] private Generator genScript;
+    [SerializeField] private Generator genScript;
 
-    public int ids = 0;
 
     float timer;
 
-    public GameObject EntitiesLuky;
 
-    public GameObject EntitiesFaroid;
 
-    public GameObject EntitiesBocan;
+    public GameObject EntitiesGameObject;
+
+
 
 
 
     private void Start()
     {
-       
+
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        Lukky();
+
     }
 
-    public void Lukky()
+    public void Lukky(int ids)
     {
-        
-        if(EntitiesLuky.activeSelf == true)
+
+
+        if (EntitiesGameObject.activeSelf == true)
         {
-            if (timer > 15)
+
+            switch(ids)
             {
-                 genScript.DeactivateGenerators();
-                  Debug.Log("yes");
+                case 1:
+                    {
+
+                        genScript.DeactivateGenerators();
+                        Debug.Log("yes");
+                        break;
+                    }
+
             }
-        }
-      
-
-
-    }
-
-    private void Faroid()
-    {
-
-        if(EntitiesFaroid.activeSelf == true)
-        {
-
-
-
+           
         }
 
 
-    }
-
-    private void Bocan()
-    {
-
-        if (EntitiesBocan.activeSelf == true)
-        {
-
-
-
-        }
-
 
     }
-
-    private void IsEntitiesPresent()
-    {
-
-
-
-    }
-
-    public void timerr()
-    {
-
-    }
-
-
-
 
 }
