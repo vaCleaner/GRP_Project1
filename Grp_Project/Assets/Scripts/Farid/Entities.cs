@@ -31,8 +31,8 @@ public class Entities : MonoBehaviour
     {
 
 
-        if (EntitiesGameObject.activeSelf == true)
-        {
+       
+        
 
             switch(ids)
             {
@@ -46,7 +46,7 @@ public class Entities : MonoBehaviour
 
             }
            
-        }
+        
 
 
 

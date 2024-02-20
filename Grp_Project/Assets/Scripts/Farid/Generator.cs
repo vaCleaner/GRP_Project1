@@ -53,9 +53,13 @@ public class Generator : MonoBehaviour
 
                 if(Minval >=7)
                 {
+                   
                     isGeneOff = false;
+                    Sliderss.value = 0;
                     Minval = 0;
                     timer = 0;
+                   
+                    
                 }
 
 
