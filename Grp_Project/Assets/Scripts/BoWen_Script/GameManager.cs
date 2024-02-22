@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private Displayed_Rooms[] ListOfRooms;
     [SerializeField]private SendAbnormalResult sendResultScript;
     [SerializeField] private LevelData[] AllLevelData;
+    [SerializeField] private GameObject WarningPanel;
     private ReportResult currentResult = new ReportResult();
     public bool GameIsOver;
 
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         RandomRoomIndex = randomRoom();
 
-        if(calculateTotalAbnormal() < 10)
+        if(calculateTotalAbnormal() < 6)
         {
            
             if (activeAbnormals[RandomRoomIndex].ActiveAbnormal.Count < AllAbnormalList[RandomRoomIndex].ListOfAbnormalData.Length)
@@ -98,9 +99,10 @@ public class GameManager : MonoBehaviour
                 AbnormalAction currentAbnormal = getAbnormalData();
                 activeAbnormals[RandomRoomIndex].ActiveAbnormal.Add(currentAbnormal);
                 ListOfRooms[RandomRoomIndex].setAbnormal(currentAbnormal, false);
-                if (calculateTotalAbnormal() >= 6)
+                if (calculateTotalAbnormal() >= 3)
                 {
-                    //add warning
+                    AudioManager.instance.Play("Warnin_SFX");
+                    WarningPanel.SetActive(true);
                 }
             }
             else
@@ -110,7 +112,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //for losing
+            GameStop(false);
             Debug.Log("Lose");
         }
 
