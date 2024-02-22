@@ -24,3 +24,9 @@ MonoBehaviour:
   - Position: {x: 1.62, y: -15.57, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
+  - Position: {x: 0, y: -15.101, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+  - Position: {x: 0, y: -15.101, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}

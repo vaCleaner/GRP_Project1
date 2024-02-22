@@ -39,7 +39,7 @@ MonoBehaviour:
     ChanceRateMinimum: 111
     ChanceRateMaximum: 125
   - AbnormalData:
-      Location: 1
+      Location: 0
       TypesOfAbnormal: 5
     ChanceRateMinimum: 126
     ChanceRateMaximum: 150

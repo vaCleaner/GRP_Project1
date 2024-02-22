@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
         GameIsOver = false;
         AmOrPm = "PM";
         modulNum = 13;
-       Seconds = 46800;
-       // Seconds = 39600;
+      // Seconds = 46800;
+        Seconds = 39600;
         difficultyLevel = 0;
         currentNight = 0;
         nextSpawnTime = 0;
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                 ListOfRooms[RandomRoomIndex].setAbnormal(currentAbnormal, false);
                 if (calculateTotalAbnormal() >= 3)
                 {
-                    AudioManager.instance.Play("Warnin_SFX");
+                    AudioManager.instance.Play("Warning_SFX");
                     WarningPanel.SetActive(true);
                 }
             }

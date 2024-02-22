@@ -12,15 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45376fcad813404fbf94297bd7461a0, type: 3}
   m_Name: Lukky
   m_EditorClassIdentifier: 
-  Entities: {fileID: 3305015411575738481, guid: c2837b6e76e4c084d9214f6ecbc7c0b3,
+  Entities: {fileID: 4190388494670787165, guid: 9313b6df344bbf24c82111accf474ded,
     type: 3}
   minSpawn: 51
   maxspawn: 100
   idss: 1
   instances:
-  - Position: {x: -7.565, y: 1.106, z: 0}
+  - Position: {x: -7.37, y: 1.106, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
   - Position: {x: 1.62, y: -15.57, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+  - Position: {x: 1.62, y: -15.101, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+  - Position: {x: 7.7, y: -15.13, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
+    Scale: {x: 0, y: 0, z: 0}
+  - Position: {x: -7, y: -15.26, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
