@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class activeAbnormalActivites
@@ -44,8 +45,8 @@ public class GameManager : MonoBehaviour
         GameIsOver = false;
         AmOrPm = "PM";
         modulNum = 13;
-        Seconds = 46800;
-        //Seconds = 39600;
+       Seconds = 46800;
+       // Seconds = 39600;
         difficultyLevel = 0;
         currentNight = 0;
         nextSpawnTime = 0;
@@ -122,11 +123,11 @@ public class GameManager : MonoBehaviour
 
         if (WinLose)
         {
-            difficultyLevel = 1;
+            SceneManager.LoadScene("WinScene");
         }
         else
         {
-            difficultyLevel = 2;
+            SceneManager.LoadScene("LoseScene");
         }
     }
 
