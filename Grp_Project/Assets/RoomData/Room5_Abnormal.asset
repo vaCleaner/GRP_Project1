@@ -14,27 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListOfAbnormalData:
   - AbnormalData:
-      Location: 2
+      Location: 4
       TypesOfAbnormal: 0
     ChanceRateMinimum: 1
     ChanceRateMaximum: 30
   - AbnormalData:
-      Location: 2
+      Location: 4
       TypesOfAbnormal: 1
     ChanceRateMinimum: 31
     ChanceRateMaximum: 70
   - AbnormalData:
-      Location: 2
+      Location: 4
       TypesOfAbnormal: 2
     ChanceRateMinimum: 71
-    ChanceRateMaximum: 90
+    ChanceRateMaximum: 89
   - AbnormalData:
-      Location: 2
+      Location: 4
       TypesOfAbnormal: 3
-    ChanceRateMinimum: 91
-    ChanceRateMaximum: 99
+    ChanceRateMinimum: 90
+    ChanceRateMaximum: 109
   - AbnormalData:
-      Location: 2
+      Location: 4
       TypesOfAbnormal: 4
-    ChanceRateMinimum: 100
-    ChanceRateMaximum: 100
+    ChanceRateMinimum: 110
+    ChanceRateMaximum: 119
+  - AbnormalData:
+      Location: 4
+      TypesOfAbnormal: 5
+    ChanceRateMinimum: 120
+    ChanceRateMaximum: 150
