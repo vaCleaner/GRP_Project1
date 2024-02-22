@@ -8,13 +8,12 @@ public class PC_Monitor : MonoBehaviour
     [SerializeField]private CameraScript camScript, camerascript;
     [SerializeField] private SendAbnormalResult reportScript;
     
-    private int leftOffIndex;
     private bool canOpen;   
   
     // Start is called before the first frame update
     void Start()
     {
-        leftOffIndex = 0;
+        
     }
 
     // Update is called once per frame
@@ -25,7 +24,8 @@ public class PC_Monitor : MonoBehaviour
 
     public void CheckTab(int index)
     {
-        leftOffIndex = index;
+
+       
         switch (index)
         {
             case 0:
@@ -36,6 +36,7 @@ public class PC_Monitor : MonoBehaviour
             case 1:
                 reportScript.checkReport(true);
                 camScript.notViewingCam();
+                
                 break;
         }
        
@@ -54,7 +55,7 @@ public class PC_Monitor : MonoBehaviour
             if (!PCMonitor.activeSelf)
             {
                 PCMonitor.SetActive(true);
-                CheckTab(leftOffIndex);
+                CheckTab(0);
             }
             else
             {

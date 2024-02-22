@@ -63,18 +63,26 @@ public class GameManager : MonoBehaviour
         checkGameProgression();
 
     }
+   
+
 
     public bool checkRoom(int value)
     {
-        foreach (AbnormalAction currentAction in activeAbnormals[value].ActiveAbnormal)
+        if(value >= 0)
         {
-            if(currentAction.TypesOfAbnormal == AbnormalAction.AbnormalTypes.Abnormal4)
+            foreach (AbnormalAction currentAction in activeAbnormals[value].ActiveAbnormal)
             {
-                return true;
+                if (currentAction.TypesOfAbnormal == AbnormalAction.AbnormalTypes.Camera_Abnormalities)
+                {
+                    Debug.Log(currentAction.Location);
+                    return true;
+
+                }
 
             }
-
         }
+
+        
         return false;
     }
     public void addRandomAbnormal()
@@ -89,6 +97,10 @@ public class GameManager : MonoBehaviour
                 AbnormalAction currentAbnormal = getAbnormalData();
                 activeAbnormals[RandomRoomIndex].ActiveAbnormal.Add(currentAbnormal);
                 ListOfRooms[RandomRoomIndex].setAbnormal(currentAbnormal, false);
+                if (calculateTotalAbnormal() >= 6)
+                {
+                    //add warning
+                }
             }
             else
             {
@@ -97,7 +109,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
+            //for losing
+            Debug.Log("Lose");
         }
 
      
@@ -213,7 +226,7 @@ public class GameManager : MonoBehaviour
 
     public AbnormalAction getAbnormalData()
     {
-        int getSpawnChance = 99;
+        int getSpawnChance = Random.Range(1, 151);
         bool repeat = true;
         AbnormalAction selectedAbnormal = null;
 
@@ -232,7 +245,7 @@ public class GameManager : MonoBehaviour
             {
                 if (selectedAbnormal == gottenData)
                 {
-                    getSpawnChance = Random.Range(1, 101);
+                    getSpawnChance = Random.Range(1, 151);
                     repeat = true;
                     break;
                 }

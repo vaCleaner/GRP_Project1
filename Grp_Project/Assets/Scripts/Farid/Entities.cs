@@ -9,17 +9,20 @@ public class Entities : MonoBehaviour
 
     float timer;
 
+    public SpriteRenderer Changedstage;
 
+    public Sprite[] changesprite;
 
     public GameObject EntitiesGameObject;
 
+    float timeforbocan;
 
-
-
+    bool ischange;
 
     private void Start()
     {
-
+        ischange = false;
+        timeforbocan = 0;
     }
 
     private void Update()
@@ -31,8 +34,6 @@ public class Entities : MonoBehaviour
     {
 
 
-       
-        
 
             switch(ids)
             {
@@ -43,12 +44,54 @@ public class Entities : MonoBehaviour
                         Debug.Log("yes");
                         break;
                     }
+                case 2:
+                {
+                    Changedstage = EntitiesGameObject.GetComponent<SpriteRenderer>();
+                    StartCoroutine(StartTimerr());
+                    Debug.Log("ok");
+                    break;
+                }
 
             }
            
         
 
 
+
+    }
+
+    public void bocandabocan()
+    {
+        
+       
+
+    }
+
+    IEnumerator StartTimerr()
+    {
+        while (timeforbocan < 40 && EntitiesGameObject != null)
+        {
+          
+            timeforbocan += Time.deltaTime;
+              Debug.Log("timer is running" + timeforbocan);
+             if(timeforbocan >= 10 && ischange ==false)
+             {
+               Changedstage.sprite = changesprite[0];
+                ischange = true;
+             }
+             if(timeforbocan >= 25 && ischange== true)
+            {
+                Changedstage.sprite = changesprite[1];
+
+            }
+            yield return null;
+           
+        }
+       
+        if (timeforbocan >= 40)
+            {
+                GameManager.GM.GameStop(false);
+            }
 
     }
 

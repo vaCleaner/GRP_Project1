@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entities: {fileID: 3305015411575738481, guid: c2837b6e76e4c084d9214f6ecbc7c0b3,
     type: 3}
-  minSpawn: 1
+  minSpawn: 51
   maxspawn: 100
   idss: 1
   instances:
-  - Position: {x: -4, y: -12.95, z: 0}
+  - Position: {x: -7.565, y: 1.106, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}
-  - Position: {x: 0, y: 0, z: 0}
+  - Position: {x: 1.62, y: -15.57, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Scale: {x: 0, y: 0, z: 0}

@@ -37,14 +37,6 @@ public class CameraScript : MonoBehaviour
         CamBoundSetup();
     }
 
-    private void setUpCamBtn()
-    {
-        for(int i = 0; i < AllCamBtn.Length; i++)
-        {
-            AllCamBtn[i].onClick.AddListener(() => changeCam(i));
-        }
-    }
-
     private void CamBoundSetup()
     {
      
@@ -81,7 +73,8 @@ public class CameraScript : MonoBehaviour
         }
         else
         {
-            openCamIndex = currentViewIndex;
+           
+            
             currentViewIndex = -1;
             canMoveCam = false;
             canActivate = true;
@@ -97,6 +90,10 @@ public class CameraScript : MonoBehaviour
     }
     public void changeCam(int value)
     {
+        if(value >= 0)
+        {
+            openCamIndex = value;
+        }
         currentViewIndex = value;
         LeftRightIndex = Random.Range(0, 2);
         canMoveCam = false;
@@ -172,6 +169,7 @@ public class CameraScript : MonoBehaviour
                 AllCamBtn[i].interactable = true;
             }
         }
+
         cameraAnomaly.purple(currentViewIndex);
     }
 

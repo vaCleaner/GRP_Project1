@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraAnomaly : MonoBehaviour
 {
 
-    GameObject BlackScreen;
+    public GameObject BlackScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,7 @@ public class CameraAnomaly : MonoBehaviour
 
     public void purple(int value)
     {
+
         BlackScreen.SetActive(GameManager.GM.checkRoom(value));
     }
 }

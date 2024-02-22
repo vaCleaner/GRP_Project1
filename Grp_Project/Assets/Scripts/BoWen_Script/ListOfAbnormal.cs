@@ -16,4 +16,5 @@ public class AllAbnormlData
 public class ListOfAbnormal : ScriptableObject
 {
   public AllAbnormlData[] ListOfAbnormalData;
+  
 }
