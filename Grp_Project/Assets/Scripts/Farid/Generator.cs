@@ -23,7 +23,7 @@ public class Generator : MonoBehaviour
     private void Start()
     {
         Sliderss.maxValue = 7;
-        
+        Sliderss.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -45,8 +45,8 @@ public class Generator : MonoBehaviour
 
             if(Input.GetKey(KeyCode.E))
             {
-                
 
+                Sliderss.gameObject.SetActive(true);
                 Sliderss.value = Minval;
 
                 Minval += Time.deltaTime;
@@ -68,8 +68,8 @@ public class Generator : MonoBehaviour
             else
             {
                 Minval = 0;
-                
-                
+                Sliderss.gameObject.SetActive(false);
+
             }
 
 

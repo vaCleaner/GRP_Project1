@@ -169,7 +169,7 @@ public class CameraScript : MonoBehaviour
                 AllCamBtn[i].interactable = true;
             }
         }
-
+        AudioManager.instance.Play("Cam_SFX");
         cameraAnomaly.purple(currentViewIndex);
     }
 

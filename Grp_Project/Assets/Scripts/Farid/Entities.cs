@@ -13,7 +13,7 @@ public class Entities : MonoBehaviour
 
     public Sprite[] changesprite;
 
-    public GameObject EntitiesGameObject;
+    public GameObject EntitiesGameObject, JumpscareObj;
 
     float timeforbocan;
 
@@ -90,7 +90,10 @@ public class Entities : MonoBehaviour
        
         if (timeforbocan >= 40)
             {
-                GameManager.GM.GameStop(false);
+            AudioManager.instance.Play("Jumpscare_SFX");
+            JumpscareObj.SetActive(true);
+            yield return new WaitForSeconds(3);
+            GameManager.GM.GameStop(false);
             }
 
     }
