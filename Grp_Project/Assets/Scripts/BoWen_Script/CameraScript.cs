@@ -23,7 +23,7 @@ public class CameraScript : MonoBehaviour
     private Vector2 screenBound;
     private float camWidth;
     private float camHeight;
-
+    [SerializeField] CameraAnomaly cameraAnomaly;
     [SerializeField]SpriteRenderer MapObj;
 
     // Start is called before the first frame update
@@ -35,14 +35,6 @@ public class CameraScript : MonoBehaviour
         canMoveCam = false;
         canActivate = true;
         CamBoundSetup();
-    }
-
-    private void setUpCamBtn()
-    {
-        for(int i = 0; i < AllCamBtn.Length; i++)
-        {
-            AllCamBtn[i].onClick.AddListener(() => changeCam(i));
-        }
     }
 
     private void CamBoundSetup()
@@ -81,7 +73,8 @@ public class CameraScript : MonoBehaviour
         }
         else
         {
-            openCamIndex = currentViewIndex;
+           
+            
             currentViewIndex = -1;
             canMoveCam = false;
             canActivate = true;
@@ -97,12 +90,17 @@ public class CameraScript : MonoBehaviour
     }
     public void changeCam(int value)
     {
+        if(value >= 0)
+        {
+            openCamIndex = value;
+        }
         currentViewIndex = value;
         LeftRightIndex = Random.Range(0, 2);
         canMoveCam = false;
         StartCoroutine(delayMovingCam(1));
         SercruityCam.transform.localPosition = new Vector3(0, 0, SercruityCam.transform.position.z);
         displayCorrectCam();
+        
     }
 
     public void moveLeftRight()
@@ -172,6 +170,7 @@ public class CameraScript : MonoBehaviour
             }
         }
 
+        cameraAnomaly.purple(currentViewIndex);
     }
 
     IEnumerator delayMovingCam(float value)

@@ -7,9 +7,18 @@ public class Displayed_Rooms : MonoBehaviour
     [SerializeField] private GameObject[] MoveableObject = new GameObject[1];
     [SerializeField] private GameObject[] RemoveableObj = new GameObject[1];
     [SerializeField] private Transform[] ListOfPos = new Transform[1];
-    private GameObject selectedMoveObj;
+
+    [SerializeField] private GameObject[] SpawnAnomaly = new GameObject[1];
+    [SerializeField] private Transform[] SetPosAnomaly = new Transform[1];
+
+    public ChangeSpriteClass[] ChangeTheSprrite;
+
+    int Checkindex;
+
+    private GameObject selectedMoveObj, savedObject, saveEntitieso;
     private Vector3 saveMovingPos;
-    
+
+    [SerializeField] private int Roomids;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +31,39 @@ public class Displayed_Rooms : MonoBehaviour
     {
         
     }
+    public void spawnAnomaly(bool report)
+    {
+        if (report)
+        {
+            Destroy(savedObject.gameObject);
+        }
+        else
+        {
+            int randomNumber = Random.Range(0, SpawnAnomaly.Length);
+            int randomPosition = Random.Range(0, SetPosAnomaly.Length);
+            savedObject = Instantiate(SpawnAnomaly[randomNumber], SetPosAnomaly[randomPosition]);
+        }
+    }
 
-   
+    public void SpawnEntites(bool Clearit)
+    {
+        if (Clearit)
+        {
+           Destroy(saveEntitieso.gameObject);
+          
+        }
+        else
+        {
+            saveEntitieso = SpawnerEntities.Staticscript.Spawner(Roomids,this.transform);
+        }
+    }
+
 
     public void setAbnormal(AbnormalAction category, bool clear)
     {
         switch (category.TypesOfAbnormal)
         {
-            case AbnormalAction.AbnormalTypes.Item_Changes_Place:
+            case AbnormalAction.AbnormalTypes.Object_Moved_Abnormalities:
                 changeObjPos(clear);
                 break;
 
@@ -37,16 +71,16 @@ public class Displayed_Rooms : MonoBehaviour
                 RemoveObj(clear);
                 break;
 
-            case AbnormalAction.AbnormalTypes.Abnormal3:
-
+            case AbnormalAction.AbnormalTypes.Add_Item:
+                spawnAnomaly(clear);
                 break;
 
-            case AbnormalAction.AbnormalTypes.Abnormal4:
-
+            case AbnormalAction.AbnormalTypes.Change_Object_abnormalities:
+                ChangeSpriteAdnomalies(clear);
                 break;
 
-            case AbnormalAction.AbnormalTypes.Abnormal5:
-
+            case AbnormalAction.AbnormalTypes.Entities:
+                SpawnEntites(clear);
                 break;
 
             default:
@@ -54,7 +88,32 @@ public class Displayed_Rooms : MonoBehaviour
                 break;
         }
     }
+    private void ChangeSpriteAdnomalies(bool IsChange)
+    {
 
+        if(IsChange)
+        {
+
+            for (int i = 0; i < ChangeTheSprrite[Checkindex].ChangeSprite.Length; i++ )
+            {
+
+                ChangeTheSprrite[Checkindex].ChangeSprite[i].sprite = ChangeTheSprrite[Checkindex].StoreOriginal[i];
+            }
+
+        }
+        else
+        {
+
+            for (int i = 0; i < ChangeTheSprrite[Checkindex].ChangeSprite.Length; i++)
+            {
+                ChangeTheSprrite[Checkindex].StoreOriginal[i] = ChangeTheSprrite[Checkindex].ChangeSprite[i].sprite;
+                ChangeTheSprrite[Checkindex].ChangeSprite[i].sprite = ChangeTheSprrite[Checkindex].StoreSprite;
+            }
+
+
+        }
+
+    }
     private void changeObjPos(bool clearIt)
     {
         if (clearIt)
@@ -70,7 +129,7 @@ public class Displayed_Rooms : MonoBehaviour
             selectedMoveObj = MoveableObject[randomIndex];
             saveMovingPos = selectedMoveObj.transform.position;
             Debug.Log(randomPosIndex);
-            Vector3 randomSpawnPos = new Vector3(Random.Range(ListOfPos[randomPosIndex].position.x - 2f, ListOfPos[randomPosIndex].position.x + 2f), Random.Range(ListOfPos[randomPosIndex].position.y - 2f, ListOfPos[randomPosIndex].position.y + 2f), 0);
+            Vector3 randomSpawnPos = new Vector3(Random.Range(ListOfPos[randomPosIndex].position.x - 0.1f, ListOfPos[randomPosIndex].position.x + 0.1f), Random.Range(ListOfPos[randomPosIndex].position.y - 0.1f, ListOfPos[randomPosIndex].position.y + 0.1f), 0);
             MoveableObject[randomIndex].transform.position = randomSpawnPos;
         }
       

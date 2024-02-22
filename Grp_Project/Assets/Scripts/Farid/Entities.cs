@@ -4,86 +4,95 @@ using UnityEngine;
 
 public class Entities : MonoBehaviour
 {
-   [SerializeField] private Generator genScript;
+    [SerializeField] private Generator genScript;
 
-    public int ids = 0;
 
     float timer;
 
-    public GameObject EntitiesLuky;
+    public SpriteRenderer Changedstage;
 
-    public GameObject EntitiesFaroid;
+    public Sprite[] changesprite;
 
-    public GameObject EntitiesBocan;
+    public GameObject EntitiesGameObject;
 
+    float timeforbocan;
 
+    bool ischange;
 
     private void Start()
     {
-       
+        ischange = false;
+        timeforbocan = 0;
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        Lukky();
+
     }
 
-    public void Lukky()
+    public void Lukky(int ids)
+    {
+
+
+
+            switch(ids)
+            {
+                case 1:
+                    {
+
+                        genScript.DeactivateGenerators();
+                        Debug.Log("yes");
+                        break;
+                    }
+                case 2:
+                {
+                    Changedstage = EntitiesGameObject.GetComponent<SpriteRenderer>();
+                    StartCoroutine(StartTimerr());
+                    Debug.Log("ok");
+                    break;
+                }
+
+            }
+           
+        
+
+
+
+    }
+
+    public void bocandabocan()
     {
         
-        if(EntitiesLuky.activeSelf == true)
+       
+
+    }
+
+    IEnumerator StartTimerr()
+    {
+        while (timeforbocan < 40 && EntitiesGameObject != null)
         {
-            if (timer > 15)
+          
+            timeforbocan += Time.deltaTime;
+              Debug.Log("timer is running" + timeforbocan);
+             if(timeforbocan >= 10 && ischange ==false)
+             {
+               Changedstage.sprite = changesprite[0];
+                ischange = true;
+             }
+             if(timeforbocan >= 25 && ischange== true)
             {
-                 genScript.DeactivateGenerators();
-                  Debug.Log("yes");
+                Changedstage.sprite = changesprite[1];
+
             }
+            yield return null;
+           
         }
-      
-
-
-    }
-
-    private void Faroid()
-    {
-
-        if(EntitiesFaroid.activeSelf == true)
-        {
-
-
-
-        }
-
+       
+        if (timeforbocan >= 40)
+            {
+                GameManager.GM.GameStop(false);
+            }
 
     }
-
-    private void Bocan()
-    {
-
-        if (EntitiesBocan.activeSelf == true)
-        {
-
-
-
-        }
-
-
-    }
-
-    private void IsEntitiesPresent()
-    {
-
-
-
-    }
-
-    public void timerr()
-    {
-
-    }
-
-
-
 
 }
