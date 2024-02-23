@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = false;
         AmOrPm = "PM";
         modulNum = 13;
-      // Seconds = 46800;
+     // Seconds = 46800;
         Seconds = 39600;
         difficultyLevel = 0;
         currentNight = 0;
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         RandomRoomIndex = randomRoom();
 
-        if(calculateTotalAbnormal() < 6)
+        if(calculateTotalAbnormal() < 7)
         {
            
             if (activeAbnormals[RandomRoomIndex].ActiveAbnormal.Count < AllAbnormalList[RandomRoomIndex].ListOfAbnormalData.Length)
