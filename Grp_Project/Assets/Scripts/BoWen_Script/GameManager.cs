@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
 
     public void timeCalculation()
     {
-        Seconds += 30 * Time.deltaTime;
+        Seconds += 60 * Time.deltaTime;
         Minute = Mathf.FloorToInt((Seconds / 60) % 60);
         Hour = Mathf.FloorToInt((Seconds / 60 / 60) % modulNum);
 
